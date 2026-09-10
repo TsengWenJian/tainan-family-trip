@@ -10,130 +10,117 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F3EAD9;             /* 廟埕日曬米 */
-  --bg-2:#EDE0C8;           /* 背景漸層底 */
-  --paper:#FFFDF7;          /* 宣紙白 */
-  --paper-2:#FBF3E4;        /* 次級卡片 */
-  --ink:#33261E;            /* 濃墨褐 */
-  --ink-soft:#5E4B3D;
-  --stone:#8A7663;          /* 說明文字 */
-  --brick:#B4402C;          /* 赤崁樓紅磚（主色） */
-  --brick-deep:#8C2E22;     /* 廟門朱漆 */
-  --brick-wash:#F2DDCF;     /* 淺磚 */
-  --gold:#BE8A34;           /* 廟簷貼金 */
-  --gold-soft:#E9D4A6;
-  --pine:#3F6152;           /* 老榕深綠 */
-  --pine-soft:#DCE7DC;
-  --sea:#356E77;            /* 鹽田水色 */
-  --line:#E4D6BC;
-  --line-soft:#EFE6D2;
+  --bg:#FBF6EC;             /* 溫潤象牙白 */
+  --surface:#FFFFFF;        /* 卡片：純白，與底色拉出層次 */
+  --surface-2:#F6EFE1;
+  --ink:#2B2420;            /* 近黑暖墨 */
+  --ink-2:#6A5C52;          /* 次要文字 */
+  --ink-3:#9C8E80;          /* 註記文字 */
+  --accent:#B5533B;         /* 赤崁磚紅 / 柿紅（唯一主色） */
+  --accent-deep:#8E3E2B;    /* 廟門朱漆 */
+  --accent-wash:#F4E4DC;    /* 淺磚 */
+  --green:#3C5A4E;          /* 樟樹深綠（輔色，僅連結） */
+  --green-wash:#E5EBE4;
+  --gold:#B48A46;           /* 貼金 */
+  --border:#ECE2D2;
+  --border-2:#E3D8C4;
   --radius:14px;
-  --shadow:0 1px 2px rgba(51,38,30,.05), 0 6px 18px rgba(51,38,30,.05);
+  --shadow:0 1px 3px rgba(43,36,32,.06), 0 10px 28px rgba(43,36,32,.05);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
   font-family:"Noto Sans TC",system-ui,sans-serif;
-  background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%) fixed;
+  background:var(--bg);
   color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased;
 }
 h1,h2,h3{font-family:"Noto Serif TC",serif}
-::selection{background:var(--gold-soft);color:var(--ink)}
-a{color:var(--sea)}
+::selection{background:var(--accent-wash);color:var(--ink)}
+a{color:var(--green)}
 
 /* hero */
-.hero{padding:22px 22px 24px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:
-  radial-gradient(120% 78% at 12% -10%, rgba(190,138,52,.16), transparent 60%),
-  radial-gradient(90% 70% at 108% 12%, rgba(180,64,44,.12), transparent 55%);}
-.hero::after{content:"";position:absolute;left:22px;right:22px;bottom:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold-soft) 20%,var(--gold-soft) 80%,transparent)}
-.hero .eyebrow{position:relative;font-size:11.5px;letter-spacing:.32em;color:var(--pine);font-weight:700;text-transform:uppercase}
-.hero h1{position:relative;font-size:32px;font-weight:900;line-height:1.22;letter-spacing:-.01em;margin:8px 0 8px}
-.hero h1 span{color:var(--brick)}
-.hero .sub{position:relative;font-size:14px;color:var(--stone)}
+.hero{padding:26px 22px 24px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(115% 80% at 8% -20%, rgba(181,83,59,.09), transparent 62%)}
+.hero .eyebrow{position:relative;font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:700;text-transform:uppercase}
+.hero h1{position:relative;font-size:33px;font-weight:900;line-height:1.2;letter-spacing:-.015em;margin:10px 0 9px}
+.hero h1 span{color:var(--accent)}
+.hero .sub{position:relative;font-size:13.5px;color:var(--ink-2)}
 .chips{position:relative;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.chip{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:12px;color:var(--stone);box-shadow:0 1px 2px rgba(51,38,30,.04)}
+.chip{background:var(--surface);border:1px solid var(--border-2);border-radius:999px;padding:6px 13px;font-size:12px;color:var(--ink-2);box-shadow:0 1px 2px rgba(43,36,32,.04)}
 .chip b{color:var(--ink)}
 
 /* tabs */
-.tabs{position:sticky;top:0;z-index:20;background:rgba(243,234,217,.9);backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);display:flex;gap:6px;padding:10px 14px;overflow-x:auto;scrollbar-width:none}
+.tabs{position:sticky;top:0;z-index:20;background:rgba(251,246,236,.88);backdrop-filter:blur(10px);
+  display:flex;gap:6px;padding:10px 14px;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex:0 0 auto;border:1px solid transparent;background:transparent;border-radius:999px;padding:10px 19px;
-  font-size:15px;font-weight:600;color:var(--stone);cursor:pointer;font-family:inherit;white-space:nowrap;transition:color .15s,background .15s}
-.tab:hover{color:var(--brick-deep)}
-.tab.active{background:var(--brick-deep);color:#fff;box-shadow:0 3px 10px rgba(140,46,34,.26)}
+  font-size:15px;font-weight:600;color:var(--ink-2);cursor:pointer;font-family:inherit;white-space:nowrap;transition:color .15s,background .15s}
+.tab:hover{color:var(--accent-deep)}
+.tab.active{background:var(--accent-deep);color:#fff;box-shadow:0 4px 12px rgba(142,62,43,.24)}
 
 /* sections */
-.wrap{padding:20px 16px 60px;max-width:680px;margin:0 auto}
-section{margin-bottom:28px}
-section h2{font-size:18px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:9px}
-section h2::before{content:"";width:5px;height:20px;border-radius:3px;background:linear-gradient(180deg,var(--brick),var(--gold))}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.wrap{padding:22px 16px 60px;max-width:680px;margin:0 auto}
+section{margin-bottom:30px}
+section h2{font-size:17px;font-weight:700;margin-bottom:13px;display:flex;align-items:center;gap:9px}
+section h2::before{content:"";width:4px;height:18px;border-radius:2px;background:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
 .card h3{font-size:15px;font-weight:700;margin-bottom:6px}
-.card p,.card li{font-size:13.5px;color:var(--stone)}
+.card p,.card li{font-size:13.5px;color:var(--ink-2)}
 .card ul{padding-left:18px}
 .card b{color:var(--ink)}
-.note{background:var(--brick-wash);border-left:3px solid var(--brick);padding:10px 12px;border-radius:8px;font-size:12.5px;margin-top:10px;color:var(--ink-soft)}
+.note{background:var(--accent-wash);border-left:3px solid var(--accent);padding:10px 12px;border-radius:8px;font-size:12.5px;margin-top:10px;color:var(--accent-deep)}
 
 /* day */
 .day{display:none}
 .day.show{display:block}
-.day-head{padding:20px 20px 17px;border-radius:var(--radius);color:#fff;position:relative;overflow:hidden;
-  margin-bottom:18px;scroll-margin-top:78px;
-  background:
-    radial-gradient(150% 130% at 100% -20%, rgba(233,212,166,.28), transparent 55%),
-    linear-gradient(135deg,#39221A 0%,#7C2D1F 58%,#96411F 100%);
-  border:1px solid rgba(233,212,166,.22);
-  box-shadow:0 8px 24px rgba(51,38,30,.18)}
-.day-head .d{font-size:11.5px;letter-spacing:.24em;opacity:.72;font-weight:500}
-.day-head h2{font-size:22px;margin:5px 0 7px;color:#fff;font-weight:700}
+.day-head{padding:22px 20px 18px;border-radius:var(--radius);color:#fff;position:relative;overflow:hidden;
+  margin-bottom:20px;scroll-margin-top:78px;
+  background:linear-gradient(118deg,#8E3E2B 0%,#6C3122 100%);
+  box-shadow:0 10px 26px rgba(108,49,34,.22)}
+.day-head::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:rgba(180,138,70,.55)}
+.day-head .d{font-size:11px;letter-spacing:.26em;opacity:.7;font-weight:500}
+.day-head h2{font-size:22px;margin:6px 0 8px;color:#fff;font-weight:700}
 .day-head h2::before{display:none}
-.day-head .stay{font-size:13px;opacity:.9}
+.day-head .stay{font-size:12.5px;opacity:.88}
 .day-head .stay::before{content:"🏠 "}
 .day-head.last .stay::before{content:"🚗 "}
 
 /* timeline */
 .tl{position:relative;padding-left:74px}
-.tl::before{content:"";position:absolute;left:58px;top:10px;bottom:10px;width:2px;
-  background:linear-gradient(180deg,var(--gold-soft),var(--line) 70%)}
+.tl::before{content:"";position:absolute;left:58px;top:10px;bottom:10px;width:2px;background:var(--border-2)}
 .item{position:relative;margin-bottom:14px}
-.item .time{position:absolute;left:-74px;top:2px;width:48px;text-align:right;font-size:13px;font-weight:700;
-  color:var(--brick-deep);font-variant-numeric:tabular-nums}
-.item::before{content:"";position:absolute;left:-19px;top:7px;width:10px;height:10px;border-radius:50%;
-  background:var(--brick);border:2px solid var(--bg)}
-.item.key::before{background:var(--gold);width:14px;height:14px;left:-21px;top:5px;
-  border-color:var(--bg);box-shadow:0 0 0 4px rgba(190,138,52,.2)}
-.item .box{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;box-shadow:var(--shadow)}
-.item.key .box{border-color:var(--gold-soft);background:linear-gradient(180deg,var(--paper),var(--paper-2))}
+.item .time{position:absolute;left:-74px;top:3px;width:48px;text-align:right;font-size:13px;font-weight:700;
+  color:var(--accent-deep);font-variant-numeric:tabular-nums}
+.item::before{content:"";position:absolute;left:-19px;top:7px;width:8px;height:8px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--accent)}
+.item.key::before{background:var(--accent);width:10px;height:10px;left:-20px;top:6px}
+.item .box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;box-shadow:var(--shadow)}
 .item h3{font-size:15px;font-weight:700;margin-bottom:4px}
-.item p{font-size:13px;color:var(--stone)}
-.item .hi{font-size:12.5px;color:var(--ink-soft);margin-top:5px}
-.item .hi::before{content:"◆ ";color:var(--gold)}
+.item p{font-size:13.5px;color:var(--ink-2)}
+.item .hi{font-size:13.5px;color:var(--ink-2);margin-top:7px;padding-left:11px;border-left:2px solid var(--border-2)}
 .item .sublist{margin:6px 0 2px;padding-left:16px}
-.item .sublist li{font-size:12.5px;color:var(--stone);margin-bottom:2px}
-.item .tip{margin-top:6px;font-size:12px;color:var(--pine);font-weight:600}
-.drive{position:relative;font-size:11.5px;color:var(--pine);margin:-4px 0 14px;padding-left:2px;opacity:.9}
-.drive::before{content:"🚗 "}
-.maplinks{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
-.maplinks a{font-size:11.5px;font-weight:600;color:var(--pine);text-decoration:none;
-  background:var(--pine-soft);padding:4px 10px;border-radius:999px;white-space:nowrap;transition:background .15s}
-.maplinks a:hover{background:#cfe0d0}
+.item .sublist li{font-size:13px;color:var(--ink-2);margin-bottom:2px}
+.item .tip{margin-top:6px;font-size:12.5px;color:var(--green);font-weight:600}
+.drive{font-size:12px;color:var(--ink-3);margin:2px 0 12px;letter-spacing:.02em}
+.drive::before{content:"↓  ";color:var(--border-2);font-weight:700}
+.maplinks{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0 2px}
+.maplinks a{font-size:11.5px;font-weight:600;color:var(--green);text-decoration:none;
+  background:var(--green-wash);padding:4px 10px;border-radius:999px;white-space:nowrap;transition:background .15s}
+.maplinks a:hover{background:#d6e0d5}
 
 /* recommendations */
-.rec{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-.rec li{list-style:none;padding:13px 15px;border-bottom:1px solid var(--line-soft)}
+.rec{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.rec li{list-style:none;padding:14px 15px;border-bottom:1px solid var(--border)}
 .rec li:last-child{border:none}
 .rec .name{font-size:14px;font-weight:700;color:var(--ink)}
-.rec .meta{font-size:12px;color:var(--stone);margin-top:3px}
-.rec .hi{font-size:12px;color:var(--ink-soft);margin-top:3px}
-.rec .hi::before{content:"◆ ";color:var(--gold)}
-.rec .badge{display:inline-block;font-size:10.5px;font-weight:700;color:#6B4C15;background:var(--gold-soft);
+.rec .meta{font-size:12.5px;color:var(--ink-3);margin-top:3px}
+.rec .hi{font-size:12.5px;color:var(--ink-2);margin-top:6px;padding-left:11px;border-left:2px solid var(--border-2)}
+.rec .badge{display:inline-block;font-size:10.5px;font-weight:700;color:var(--accent-deep);background:var(--accent-wash);
   border-radius:6px;padding:1px 7px;margin-right:6px;vertical-align:1px}
 
-footer{text-align:center;font-size:12px;color:var(--stone);padding:24px}
-footer a{color:var(--sea)}
+footer{text-align:center;font-size:12px;color:var(--ink-3);padding:26px}
+footer a{color:var(--green)}
 
 @media print{
   .tabs{display:none}
@@ -162,9 +149,9 @@ footer a{color:var(--sea)}
 
 <nav class="tabs" id="tabs" aria-label="行程分頁">
   <button class="tab active" data-day="all">總覽</button>
-  <button class="tab" data-day="1">D1 · 9/25</button>
-  <button class="tab" data-day="2">D2 · 9/26</button>
-  <button class="tab" data-day="3">D3 · 9/27</button>
+  <button class="tab" data-day="1">D1</button>
+  <button class="tab" data-day="2">D2</button>
+  <button class="tab" data-day="3">D3</button>
 </nav>
 
 <main class="wrap">
@@ -199,22 +186,7 @@ footer a{color:var(--sea)}
     <div class="card">
       <ul>
         <li>Day 1 晚上在民宿討論隔天行程</li>
-        <li><b>訂十鼓文創園區門票</b>（原文為「十股」，應為十鼓仁糖文創園區）</li>
-      </ul>
-      <div class="note">出發前再確認各站營業時間，部分店家週五／週六時段不同。</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>行程檢查・提醒</h2>
-    <div class="card">
-      <ul>
-        <li><b>Day 1 時間順序</b>：05:10「平鎮接人換車」應排在 04:30 出發之後、竹北全家之前；「第二台車直接前往集合」是不繞平鎮、直接開西螺會合。</li>
-        <li><b>Day 1 午餐</b>：11:00 北港老街 → 14:00 之間可在老街解決午餐（麻花捲、煎盤粿、假魚肚湯）。</li>
-        <li><b>Day 1 夜市</b>：善化夜市週四、日營業，9/25（五）不開；當天實際只能去大東夜市（週一、二、五）。</li>
-        <li><b>Day 2 車程</b>：十鼓 → 興達漁港實際約 35–40 分（原標 23 分偏短）；十鼓、興達漁港停留時間偏長，中午可在十鼓園區內用餐。</li>
-        <li><b>Day 3 車程</b>：阿宏師火雞肉飯與垂坤食品同在嘉義市、相距約 10 分，中間「1 小時 28 分」應是市區覓食的停留時間；垂坤（嘉義）→ 後龍夜市（苗栗）實際約 1 小時 50 分–2 小時（原標 25 分嚴重低估），15:30 出發最快約 17:20 才會到。</li>
-        <li><b>連得堂餅家</b>（伴手禮）只有週五、六營業，週日買不到。</li>
+        <li><b>訂十鼓仁糖文創園區門票</b></li>
       </ul>
     </div>
   </section>
@@ -316,7 +288,7 @@ footer a{color:var(--sea)}
       <li>
         <div class="name"><span class="badge">伴手禮／零食</span>連得堂餅家</div>
         <div class="meta">臺南市北區北華里崇安街 54 號｜週五／六 08:00–20:00 / 18:00</div>
-        <div class="hi">百年煎餅老店，味噌／雞蛋煎餅，每人限購；<b>只有週五、六營業</b>，週日買不到。</div>
+        <div class="hi">百年煎餅老店，味噌／雞蛋煎餅，每人限購；只賣週五、六。</div>
         <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=連得堂餅家 台南崇安街54號" target="_blank" rel="noopener">📍 地圖</a></div>
       </li>
     </ul>
@@ -334,11 +306,6 @@ footer a{color:var(--sea)}
     <div class="item key"><span class="time">04:30</span><div class="box">
       <h3>第一台車先出發載人</h3>
     </div></div>
-    <div class="item"><span class="time">05:30</span><div class="box">
-      <h3>第二台車直接開往西螺會合</h3>
-      <p>不繞平鎮、竹北，直接前往黃家九層粿；車程約 2 小時 19 分</p>
-      <div class="note">原 PDF 此條列在「平鎮接人」之前、時間 05:30 早於下一條 05:10，時間軸看起來倒退，實際順序應為 04:30 → 05:10 平鎮 → 06:00 竹北 → 08:30 西螺。</div>
-    </div></div>
     <div class="drive">33 分鐘</div>
     <div class="item"><span class="time">05:10</span><div class="box">
       <h3>平鎮接人、換車</h3>
@@ -351,7 +318,8 @@ footer a{color:var(--sea)}
     <div class="drive">1 小時 46 分鐘</div>
     <div class="item key"><span class="time">08:30</span><div class="box">
       <h3>西螺 黃家九層粿</h3>
-      <p class="hi">西螺傳統市場旁人氣早點，九層粿淋醬油膏＋香油，兩車在此會合。</p>
+      <p>第二台車不繞平鎮、竹北，直接開來西螺會合（車程約 2 小時 19 分）。</p>
+      <p class="hi">西螺傳統市場旁人氣早點，九層粿淋醬油膏＋香油。</p>
       <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=西螺黃家九層粿" target="_blank" rel="noopener">📍 地圖</a></div>
     </div></div>
     <div class="drive">21 分鐘</div>
@@ -366,7 +334,7 @@ footer a{color:var(--sea)}
       <p class="hi">朝天宮周邊街區，麻花捲、煎盤粿、假魚肚湯、鴨肉飯；<b>午餐可在此解決</b>。</p>
       <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=北港老街" target="_blank" rel="noopener">📍 地圖</a></div>
     </div></div>
-    <div class="drive">23 分鐘 ／ 49 分鐘（依下一站）</div>
+    <div class="drive">23／49 分鐘</div>
     <div class="item"><span class="time">14:00</span><div class="box">
       <h3>蝦の故鄉 ／ 果知青冰舖（二選一）</h3>
       <p class="hi">蝦の故鄉：釣蝦＋現烤海鮮活動型；果知青冰舖：芒果／水果冰品，走輕鬆路線。</p>
@@ -375,16 +343,16 @@ footer a{color:var(--sea)}
         <a href="https://www.google.com/maps/search/?api=1&query=果知青冰舖" target="_blank" rel="noopener">📍 果知青冰舖</a>
       </div>
     </div></div>
-    <div class="drive">72 分鐘 ／ 54 分鐘（依上一站）</div>
+    <div class="drive">54／72 分鐘</div>
     <div class="item key"><span class="time">17:00</span><div class="box">
       <h3>入住民宿</h3>
       <p>台南市北區成功路 22 巷 18 弄 50 號</p>
       <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=台南市北區成功路22巷18弄50號" target="_blank" rel="noopener">📍 地圖</a></div>
     </div></div>
-    <div class="drive">12 分鐘 ／ 43 分鐘（依夜市）</div>
+    <div class="drive">12／43 分鐘</div>
     <div class="item"><span class="time">18:00</span><div class="box">
       <h3>大東夜市 ／ 善化夜市（二選一）</h3>
-      <p class="hi">大東夜市：週一、二、五（近市區、規模大）；善化夜市：週四、日 —— <b>9/25（五）善化不營業，當天請走大東</b>。</p>
+      <p class="hi">大東夜市：週一、二、五；善化夜市：週四、日。</p>
       <div class="maplinks">
         <a href="https://www.google.com/maps/search/?api=1&query=台南大東夜市" target="_blank" rel="noopener">📍 大東夜市</a>
         <a href="https://www.google.com/maps/search/?api=1&query=台南善化夜市" target="_blank" rel="noopener">📍 善化夜市</a>
@@ -413,10 +381,10 @@ footer a{color:var(--sea)}
     <div class="drive">23 分鐘</div>
     <div class="item key"><span class="time">09:30</span><div class="box">
       <h3>十鼓文創園區</h3>
-      <p class="hi">仁德舊糖廠改建，擊鼓劇場表演、煙囪滑梯、天空步道、夜間點燈；<b>需門票，園區內有餐廳可解決午餐</b>。原 PDF 寫「十股」。</p>
+      <p class="hi">仁德舊糖廠改建，擊鼓劇場表演、煙囪滑梯、天空步道、夜間點燈；需門票，園區內有餐廳。</p>
       <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=十鼓仁糖文創園區" target="_blank" rel="noopener">📍 地圖</a></div>
     </div></div>
-    <div class="drive">約 35–40 分鐘（原標 23 分偏短）</div>
+    <div class="drive">35 分鐘</div>
     <div class="item"><span class="time">15:00</span><div class="box">
       <h3>興達漁港</h3>
       <p class="hi">高雄茄萣漁港，現撈海產、烏魚子、蚵仔；旁邊有情人碼頭可散步看夕陽。</p>
@@ -449,7 +417,8 @@ footer a{color:var(--sea)}
     <div class="drive">1 小時 11 分鐘</div>
     <div class="item"><span class="time">12:00</span><div class="box">
       <h3>阿宏師火雞肉飯（附近覓食、買飲料）</h3>
-      <p class="hi">嘉義市火雞肉飯名店（週三公休，9/27 週日有開）；下列店家皆在嘉義市區、步行或短程車距可達。</p>
+      <p>12:00–15:30 在嘉義市區覓食，下列店家步行或短程車距可達。</p>
+      <p class="hi">嘉義市火雞肉飯名店。</p>
       <ul class="sublist">
         <li>Smokin' BBQ 德州燒烤</li>
         <li>阿樓師火雞肉飯</li>
@@ -460,16 +429,16 @@ footer a{color:var(--sea)}
       </ul>
       <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=阿宏師火雞肉飯" target="_blank" rel="noopener">📍 阿宏師火雞肉飯</a></div>
     </div></div>
-    <div class="drive">同在嘉義市區，約 10 分（原標 1 小時 28 分，應為市區覓食停留時間）</div>
+    <div class="drive">10 分鐘</div>
     <div class="item"><span class="time">15:30</span><div class="box">
       <h3>垂坤食品</h3>
       <p class="hi">嘉義知名零食伴手禮賣場，肉紙、豆干、蜜餞、餅乾種類多，試吃大方。</p>
       <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=垂坤食品" target="_blank" rel="noopener">📍 地圖</a></div>
     </div></div>
-    <div class="drive">嘉義 → 苗栗後龍，實際約 1 小時 50 分–2 小時（原標 25 分嚴重低估）</div>
-    <div class="item"><span class="time">17:00</span><div class="box">
+    <div class="drive">約 1 小時 50 分鐘</div>
+    <div class="item"><span class="time">17:30</span><div class="box">
       <h3>後龍夜市</h3>
-      <p class="hi">苗栗後龍在地夜市（多為週六），回程國道 1 號順路；15:30 從嘉義出發最快約 17:20 才會到。</p>
+      <p class="hi">苗栗後龍在地夜市（多為週六），回程國道 1 號順路。</p>
       <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=後龍夜市" target="_blank" rel="noopener">📍 地圖</a></div>
     </div></div>
     <div class="drive">45 分鐘</div>
