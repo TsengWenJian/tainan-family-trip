@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>台南家族旅遊 9/25–9/27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3EAD9;             /* 廟埕日曬米 */
+  --bg-2:#EDE0C8;           /* 背景漸層底 */
+  --paper:#FFFDF7;          /* 宣紙白 */
+  --paper-2:#FBF3E4;        /* 次級卡片 */
+  --ink:#33261E;            /* 濃墨褐 */
+  --ink-soft:#5E4B3D;
+  --stone:#8A7663;          /* 說明文字 */
+  --brick:#B4402C;          /* 赤崁樓紅磚（主色） */
+  --brick-deep:#8C2E22;     /* 廟門朱漆 */
+  --brick-wash:#F2DDCF;     /* 淺磚 */
+  --gold:#BE8A34;           /* 廟簷貼金 */
+  --gold-soft:#E9D4A6;
+  --pine:#3F6152;           /* 老榕深綠 */
+  --pine-soft:#DCE7DC;
+  --sea:#356E77;            /* 鹽田水色 */
+  --line:#E4D6BC;
+  --line-soft:#EFE6D2;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(51,38,30,.05), 0 6px 18px rgba(51,38,30,.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans TC",system-ui,sans-serif;
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%) fixed;
+  color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:"Noto Serif TC",serif}
+::selection{background:var(--gold-soft);color:var(--ink)}
+a{color:var(--sea)}
+
+/* hero */
+.hero{padding:22px 22px 24px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(120% 78% at 12% -10%, rgba(190,138,52,.16), transparent 60%),
+  radial-gradient(90% 70% at 108% 12%, rgba(180,64,44,.12), transparent 55%);}
+.hero::after{content:"";position:absolute;left:22px;right:22px;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-soft) 20%,var(--gold-soft) 80%,transparent)}
+.hero .eyebrow{position:relative;font-size:11.5px;letter-spacing:.32em;color:var(--pine);font-weight:700;text-transform:uppercase}
+.hero h1{position:relative;font-size:32px;font-weight:900;line-height:1.22;letter-spacing:-.01em;margin:8px 0 8px}
+.hero h1 span{color:var(--brick)}
+.hero .sub{position:relative;font-size:14px;color:var(--stone)}
+.chips{position:relative;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:12px;color:var(--stone);box-shadow:0 1px 2px rgba(51,38,30,.04)}
+.chip b{color:var(--ink)}
+
+/* tabs */
+.tabs{position:sticky;top:0;z-index:20;background:rgba(243,234,217,.9);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);display:flex;gap:6px;padding:10px 14px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:1px solid transparent;background:transparent;border-radius:999px;padding:10px 19px;
+  font-size:15px;font-weight:600;color:var(--stone);cursor:pointer;font-family:inherit;white-space:nowrap;transition:color .15s,background .15s}
+.tab:hover{color:var(--brick-deep)}
+.tab.active{background:var(--brick-deep);color:#fff;box-shadow:0 3px 10px rgba(140,46,34,.26)}
+
+/* sections */
+.wrap{padding:20px 16px 60px;max-width:680px;margin:0 auto}
+section{margin-bottom:28px}
+section h2{font-size:18px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+section h2::before{content:"";width:5px;height:20px;border-radius:3px;background:linear-gradient(180deg,var(--brick),var(--gold))}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.card h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.card p,.card li{font-size:13.5px;color:var(--stone)}
+.card ul{padding-left:18px}
+.card b{color:var(--ink)}
+.note{background:var(--brick-wash);border-left:3px solid var(--brick);padding:10px 12px;border-radius:8px;font-size:12.5px;margin-top:10px;color:var(--ink-soft)}
+
+/* day */
+.day{display:none}
+.day.show{display:block}
+.day-head{padding:20px 20px 17px;border-radius:var(--radius);color:#fff;position:relative;overflow:hidden;
+  margin-bottom:18px;scroll-margin-top:78px;
+  background:
+    radial-gradient(150% 130% at 100% -20%, rgba(233,212,166,.28), transparent 55%),
+    linear-gradient(135deg,#39221A 0%,#7C2D1F 58%,#96411F 100%);
+  border:1px solid rgba(233,212,166,.22);
+  box-shadow:0 8px 24px rgba(51,38,30,.18)}
+.day-head .d{font-size:11.5px;letter-spacing:.24em;opacity:.72;font-weight:500}
+.day-head h2{font-size:22px;margin:5px 0 7px;color:#fff;font-weight:700}
+.day-head h2::before{display:none}
+.day-head .stay{font-size:13px;opacity:.9}
+.day-head .stay::before{content:"🏠 "}
+.day-head.last .stay::before{content:"🚗 "}
+
+/* timeline */
+.tl{position:relative;padding-left:74px}
+.tl::before{content:"";position:absolute;left:58px;top:10px;bottom:10px;width:2px;
+  background:linear-gradient(180deg,var(--gold-soft),var(--line) 70%)}
+.item{position:relative;margin-bottom:14px}
+.item .time{position:absolute;left:-74px;top:2px;width:48px;text-align:right;font-size:13px;font-weight:700;
+  color:var(--brick-deep);font-variant-numeric:tabular-nums}
+.item::before{content:"";position:absolute;left:-19px;top:7px;width:10px;height:10px;border-radius:50%;
+  background:var(--brick);border:2px solid var(--bg)}
+.item.key::before{background:var(--gold);width:14px;height:14px;left:-21px;top:5px;
+  border-color:var(--bg);box-shadow:0 0 0 4px rgba(190,138,52,.2)}
+.item .box{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;box-shadow:var(--shadow)}
+.item.key .box{border-color:var(--gold-soft);background:linear-gradient(180deg,var(--paper),var(--paper-2))}
+.item h3{font-size:15px;font-weight:700;margin-bottom:4px}
+.item p{font-size:13px;color:var(--stone)}
+.item .hi{font-size:12.5px;color:var(--ink-soft);margin-top:5px}
+.item .hi::before{content:"◆ ";color:var(--gold)}
+.item .sublist{margin:6px 0 2px;padding-left:16px}
+.item .sublist li{font-size:12.5px;color:var(--stone);margin-bottom:2px}
+.item .tip{margin-top:6px;font-size:12px;color:var(--pine);font-weight:600}
+.drive{position:relative;font-size:11.5px;color:var(--pine);margin:-4px 0 14px;padding-left:2px;opacity:.9}
+.drive::before{content:"🚗 "}
+.maplinks{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
+.maplinks a{font-size:11.5px;font-weight:600;color:var(--pine);text-decoration:none;
+  background:var(--pine-soft);padding:4px 10px;border-radius:999px;white-space:nowrap;transition:background .15s}
+.maplinks a:hover{background:#cfe0d0}
+
+/* recommendations */
+.rec{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.rec li{list-style:none;padding:13px 15px;border-bottom:1px solid var(--line-soft)}
+.rec li:last-child{border:none}
+.rec .name{font-size:14px;font-weight:700;color:var(--ink)}
+.rec .meta{font-size:12px;color:var(--stone);margin-top:3px}
+.rec .hi{font-size:12px;color:var(--ink-soft);margin-top:3px}
+.rec .hi::before{content:"◆ ";color:var(--gold)}
+.rec .badge{display:inline-block;font-size:10.5px;font-weight:700;color:#6B4C15;background:var(--gold-soft);
+  border-radius:6px;padding:1px 7px;margin-right:6px;vertical-align:1px}
+
+footer{text-align:center;font-size:12px;color:var(--stone);padding:24px}
+footer a{color:var(--sea)}
+
+@media print{
+  .tabs{display:none}
+  .day{display:block !important}
+  body{background:#fff}
+  .day-head{box-shadow:none}
+}
+@media (prefers-reduced-motion:no-preference){
+  .day.show{animation:fade .3s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">Family Road Trip</div>
+  <h1>台南家族旅遊<br><span>9/25 – 9/27</span></h1>
+  <div class="sub">三天兩夜・兩台車・民宿宿兩晚</div>
+  <div class="chips">
+    <span class="chip">📅 <b>9/25（五）– 9/27（日）</b></span>
+    <span class="chip">🚗 兩台車</span>
+    <span class="chip">🏠 民宿：北區成功路 22 巷 18 弄 50 號</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs" aria-label="行程分頁">
+  <button class="tab active" data-day="all">總覽</button>
+  <button class="tab" data-day="1">D1 · 9/25</button>
+  <button class="tab" data-day="2">D2 · 9/26</button>
+  <button class="tab" data-day="3">D3 · 9/27</button>
+</nav>
+
+<main class="wrap">
+
+<!-- ===== 總覽 ===== -->
+<div class="day show" data-day="all">
+  <section>
+    <h2>行程摘要</h2>
+    <div class="card">
+      <h3>Day 1 · 9/25（五）｜北上集合 → 一路向南</h3>
+      <p>清晨兩台車分頭出發，西螺黃家九層粿會合，經雲林（千巧谷、北港老街）南下入住台南民宿，晚上逛夜市。</p>
+      <h3 style="margin-top:12px">Day 2 · 9/26（六）｜市區 + 濱海</h3>
+      <p>國華街早餐 → 十鼓文創園區 → 興達漁港 → 路竹夜市。</p>
+      <h3 style="margin-top:12px">Day 3 · 9/27（日）｜嘉義覓食 → 返程</h3>
+      <p>民宿退房 → 阿宏師火雞肉飯周邊覓食 → 垂坤食品採買 → 後龍夜市 → 回家。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>住宿</h2>
+    <div class="card">
+      <h3>台南民宿（兩晚）</h3>
+      <p>台南市北區成功路 22 巷 18 弄 50 號</p>
+      <div class="maplinks">
+        <a href="https://www.google.com/maps/search/?api=1&query=台南市北區成功路22巷18弄50號" target="_blank" rel="noopener">📍 Google 地圖</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>待辦</h2>
+    <div class="card">
+      <ul>
+        <li>Day 1 晚上在民宿討論隔天行程</li>
+        <li><b>訂十鼓文創園區門票</b>（原文為「十股」，應為十鼓仁糖文創園區）</li>
+      </ul>
+      <div class="note">出發前再確認各站營業時間，部分店家週五／週六時段不同。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>行程檢查・提醒</h2>
+    <div class="card">
+      <ul>
+        <li><b>Day 1 時間順序</b>：05:10「平鎮接人換車」應排在 04:30 出發之後、竹北全家之前；「第二台車直接前往集合」是不繞平鎮、直接開西螺會合。</li>
+        <li><b>Day 1 午餐</b>：11:00 北港老街 → 14:00 之間可在老街解決午餐（麻花捲、煎盤粿、假魚肚湯）。</li>
+        <li><b>Day 1 夜市</b>：善化夜市週四、日營業，9/25（五）不開；當天實際只能去大東夜市（週一、二、五）。</li>
+        <li><b>Day 2 車程</b>：十鼓 → 興達漁港實際約 35–40 分（原標 23 分偏短）；十鼓、興達漁港停留時間偏長，中午可在十鼓園區內用餐。</li>
+        <li><b>Day 3 車程</b>：阿宏師火雞肉飯與垂坤食品同在嘉義市、相距約 10 分，中間「1 小時 28 分」應是市區覓食的停留時間；垂坤（嘉義）→ 後龍夜市（苗栗）實際約 1 小時 50 分–2 小時（原標 25 分嚴重低估），15:30 出發最快約 17:20 才會到。</li>
+        <li><b>連得堂餅家</b>（伴手禮）只有週五、六營業，週日買不到。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>台南景點推薦</h2>
+    <ul class="rec">
+      <li>
+        <div class="name">河樂廣場</div>
+        <div class="meta">台南市中西區中正路 343-20 號｜17:30–22:00（21:00 最後入場）</div>
+        <div class="hi">舊中國城改建的大型淺水廣場，傍晚點燈後倒影好拍，可赤腳踏水；鄰近正興街、國華街。</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=台南河樂廣場" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>台南美食推薦</h2>
+    <ul class="rec">
+      <li>
+        <div class="name">Succès 希賽斯手感糖食</div>
+        <div class="meta">臺南市東區仁和里仁和路 139 巷 51 弄 35 號｜14:00 / 18:00</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=Succès 希賽斯手感糖食 台南" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name">和喫咖啡</div>
+        <div class="meta">臺南市中西區法華里法華街 15 號｜09:00–17:00</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=和喫咖啡 台南法華街" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name">方円良飲・台南勝利店</div>
+        <div class="meta">臺南市北區勝利里勝利路 403 號｜09:00–22:00</div>
+        <div class="hi">近成大、勝利國小；主打台灣茶飲與鮮奶茶，離民宿不遠可外帶。</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=方円良飲 台南勝利店" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name">大同包子</div>
+        <div class="meta">臺南市中西區法華里府連路 14 號｜06:00–16:30</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=大同包子 台南府連路" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name">懷舊小棧杏仁豆腐冰</div>
+        <div class="meta">臺南市中西區郡王里五妃街 206 號｜10:30 / 12:00–21:00 / 21:30</div>
+        <div class="hi">五妃廟旁老店，招牌杏仁豆腐冰、綜合冰，夏天排隊常見。</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=懷舊小棧杏仁豆腐冰 五妃街" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name">黃記古早味包子饅頭・公園店</div>
+        <div class="meta">臺南市北區正覺里公園路 669 號｜週五 06:00–09:30、14:30–18:30</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=黃記古早味包子饅頭 公園路669號" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name">大道包子店</div>
+        <div class="meta">臺南市北區大興里北門路二段 312 號｜16:00–19:30</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=大道包子店 台南北門路二段312號" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name">龍鳳早點・公園路創始老店</div>
+        <div class="meta">臺南市北區北門里公園路 1020 號｜06:15–11:00</div>
+        <div class="hi">在地早餐老店，蛋餅、飯糰、鹹豆漿；只賣早上，離民宿約 10 分。</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=龍鳳早點 公園路1020號 台南" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name">鹽埕將軍廟旁關東煮雜貨店</div>
+        <div class="meta">臺南市南區鹽埕里新興路 439 巷 1 弄 5 號</div>
+        <div class="hi">鹽埕在地隱藏版，雜貨店自煮關東煮，湯頭免費續。</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=鹽埕將軍廟 台南新興路439巷" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name">美鮮牛肉湯</div>
+        <div class="meta">臺南市南區鹽埕里新興路 419 號之 1</div>
+        <div class="hi">現切溫體牛肉湯，多為早市時段，賣完收攤，宜早去。</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=美鮮牛肉湯 台南新興路419號" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name">碗粿・柈豆湯</div>
+        <div class="meta">臺南市南區鹽埕里新興路 419 之 1｜06:00–12:45</div>
+        <div class="hi">與美鮮牛肉湯同段，碗粿配味噌湯是經典組合；中午前賣完。</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=碗粿 柈豆湯 台南新興路419" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name">無名酸菜甜甜圈雙胞胎</div>
+        <div class="meta">臺南市中西區五條港里國華街三段 66 號｜週五 13:30–20:00</div>
+        <div class="hi">國華街排隊點心，現炸雙胞胎、甜甜圈；就在國華街美食圈，可順路。</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=國華街 酸菜甜甜圈雙胞胎" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name"><span class="badge">伴手禮／零食</span>DoGa 香酥脆椒・台南正興店</div>
+        <div class="meta">臺南市中西區淺草里正興街 70 號｜10:30–18:30</div>
+        <div class="hi">正興街伴手禮，香酥脆椒（花椒／麻辣口味）罐裝好攜帶。</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=DoGa香酥脆椒 台南正興店" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name"><span class="badge">伴手禮／零食</span>酥思味 Sosweet 手工蛋捲</div>
+        <div class="meta">臺南市東區後甲里裕農路 621 巷 23 號｜13:00–20:00</div>
+        <div class="hi">手工蛋捲，常見原味、咖啡、海苔肉鬆等口味，盒裝送禮。</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=酥思味 Sosweet 手工蛋捲 台南" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+      <li>
+        <div class="name"><span class="badge">伴手禮／零食</span>連得堂餅家</div>
+        <div class="meta">臺南市北區北華里崇安街 54 號｜週五／六 08:00–20:00 / 18:00</div>
+        <div class="hi">百年煎餅老店，味噌／雞蛋煎餅，每人限購；<b>只有週五、六營業</b>，週日買不到。</div>
+        <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=連得堂餅家 台南崇安街54號" target="_blank" rel="noopener">📍 地圖</a></div>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<!-- ===== DAY 1 ===== -->
+<div class="day" data-day="1">
+  <div class="day-head">
+    <div class="d">DAY 1</div>
+    <h2>9/25（五）</h2>
+    <div class="stay">民宿・台南市北區成功路 22 巷 18 弄 50 號</div>
+  </div>
+  <div class="tl">
+    <div class="item key"><span class="time">04:30</span><div class="box">
+      <h3>第一台車先出發載人</h3>
+    </div></div>
+    <div class="item"><span class="time">05:30</span><div class="box">
+      <h3>第二台車直接開往西螺會合</h3>
+      <p>不繞平鎮、竹北，直接前往黃家九層粿；車程約 2 小時 19 分</p>
+      <div class="note">原 PDF 此條列在「平鎮接人」之前、時間 05:30 早於下一條 05:10，時間軸看起來倒退，實際順序應為 04:30 → 05:10 平鎮 → 06:00 竹北 → 08:30 西螺。</div>
+    </div></div>
+    <div class="drive">33 分鐘</div>
+    <div class="item"><span class="time">05:10</span><div class="box">
+      <h3>平鎮接人、換車</h3>
+    </div></div>
+    <div class="drive">35 分鐘</div>
+    <div class="item"><span class="time">06:00</span><div class="box">
+      <h3>全家 竹北金三民店</h3>
+      <p>補給、上洗手間</p>
+    </div></div>
+    <div class="drive">1 小時 46 分鐘</div>
+    <div class="item key"><span class="time">08:30</span><div class="box">
+      <h3>西螺 黃家九層粿</h3>
+      <p class="hi">西螺傳統市場旁人氣早點，九層粿淋醬油膏＋香油，兩車在此會合。</p>
+      <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=西螺黃家九層粿" target="_blank" rel="noopener">📍 地圖</a></div>
+    </div></div>
+    <div class="drive">21 分鐘</div>
+    <div class="item"><span class="time">09:00</span><div class="box">
+      <h3>千巧谷牛樂園牧場</h3>
+      <p class="hi">崙背免費入園親子牧場，可餵牛餵羊、買現做鮮奶製品與麵包，適合小孩放電。</p>
+      <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=千巧谷牛樂園牧場" target="_blank" rel="noopener">📍 地圖</a></div>
+    </div></div>
+    <div class="drive">38 分鐘</div>
+    <div class="item key"><span class="time">11:00</span><div class="box">
+      <h3>北港老街</h3>
+      <p class="hi">朝天宮周邊街區，麻花捲、煎盤粿、假魚肚湯、鴨肉飯；<b>午餐可在此解決</b>。</p>
+      <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=北港老街" target="_blank" rel="noopener">📍 地圖</a></div>
+    </div></div>
+    <div class="drive">23 分鐘 ／ 49 分鐘（依下一站）</div>
+    <div class="item"><span class="time">14:00</span><div class="box">
+      <h3>蝦の故鄉 ／ 果知青冰舖（二選一）</h3>
+      <p class="hi">蝦の故鄉：釣蝦＋現烤海鮮活動型；果知青冰舖：芒果／水果冰品，走輕鬆路線。</p>
+      <div class="maplinks">
+        <a href="https://www.google.com/maps/search/?api=1&query=蝦的故鄉" target="_blank" rel="noopener">📍 蝦の故鄉</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=果知青冰舖" target="_blank" rel="noopener">📍 果知青冰舖</a>
+      </div>
+    </div></div>
+    <div class="drive">72 分鐘 ／ 54 分鐘（依上一站）</div>
+    <div class="item key"><span class="time">17:00</span><div class="box">
+      <h3>入住民宿</h3>
+      <p>台南市北區成功路 22 巷 18 弄 50 號</p>
+      <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=台南市北區成功路22巷18弄50號" target="_blank" rel="noopener">📍 地圖</a></div>
+    </div></div>
+    <div class="drive">12 分鐘 ／ 43 分鐘（依夜市）</div>
+    <div class="item"><span class="time">18:00</span><div class="box">
+      <h3>大東夜市 ／ 善化夜市（二選一）</h3>
+      <p class="hi">大東夜市：週一、二、五（近市區、規模大）；善化夜市：週四、日 —— <b>9/25（五）善化不營業，當天請走大東</b>。</p>
+      <div class="maplinks">
+        <a href="https://www.google.com/maps/search/?api=1&query=台南大東夜市" target="_blank" rel="noopener">📍 大東夜市</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=台南善化夜市" target="_blank" rel="noopener">📍 善化夜市</a>
+      </div>
+    </div></div>
+    <div class="item"><span class="time">21:00</span><div class="box">
+      <h3>回民宿討論明天行程</h3>
+      <p class="tip">記得訂十鼓文創園區門票</p>
+    </div></div>
+  </div>
+</div>
+
+<!-- ===== DAY 2 ===== -->
+<div class="day" data-day="2">
+  <div class="day-head">
+    <div class="d">DAY 2</div>
+    <h2>9/26（六）</h2>
+    <div class="stay">民宿・台南市北區成功路 22 巷 18 弄 50 號</div>
+  </div>
+  <div class="tl">
+    <div class="item"><span class="time">早餐</span><div class="box">
+      <h3>民宿附近 ／ 國華街</h3>
+      <p class="hi">國華街＋永樂市場一帶是台南小吃精華：牛肉湯、碗粿、蝦仁飯、春捲、水果冰。</p>
+      <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=台南國華街" target="_blank" rel="noopener">📍 國華街</a></div>
+    </div></div>
+    <div class="drive">23 分鐘</div>
+    <div class="item key"><span class="time">09:30</span><div class="box">
+      <h3>十鼓文創園區</h3>
+      <p class="hi">仁德舊糖廠改建，擊鼓劇場表演、煙囪滑梯、天空步道、夜間點燈；<b>需門票，園區內有餐廳可解決午餐</b>。原 PDF 寫「十股」。</p>
+      <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=十鼓仁糖文創園區" target="_blank" rel="noopener">📍 地圖</a></div>
+    </div></div>
+    <div class="drive">約 35–40 分鐘（原標 23 分偏短）</div>
+    <div class="item"><span class="time">15:00</span><div class="box">
+      <h3>興達漁港</h3>
+      <p class="hi">高雄茄萣漁港，現撈海產、烏魚子、蚵仔；旁邊有情人碼頭可散步看夕陽。</p>
+      <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=興達漁港" target="_blank" rel="noopener">📍 地圖</a></div>
+    </div></div>
+    <div class="drive">20 分鐘</div>
+    <div class="item"><span class="time">18:00</span><div class="box">
+      <h3>路竹夜市</h3>
+      <p class="hi">高雄路竹在地大型流動夜市（週三、六），小吃、遊戲攤位多。</p>
+      <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=路竹夜市" target="_blank" rel="noopener">📍 地圖</a></div>
+    </div></div>
+    <div class="drive">41 分鐘</div>
+    <div class="item"><span class="time">21:00</span><div class="box">
+      <h3>回民宿</h3>
+    </div></div>
+  </div>
+</div>
+
+<!-- ===== DAY 3 ===== -->
+<div class="day" data-day="3">
+  <div class="day-head last">
+    <div class="d">DAY 3</div>
+    <h2>9/27（日）</h2>
+    <div class="stay">返程回家</div>
+  </div>
+  <div class="tl">
+    <div class="item key"><span class="time">10:30</span><div class="box">
+      <h3>民宿退房、離開</h3>
+    </div></div>
+    <div class="drive">1 小時 11 分鐘</div>
+    <div class="item"><span class="time">12:00</span><div class="box">
+      <h3>阿宏師火雞肉飯（附近覓食、買飲料）</h3>
+      <p class="hi">嘉義市火雞肉飯名店（週三公休，9/27 週日有開）；下列店家皆在嘉義市區、步行或短程車距可達。</p>
+      <ul class="sublist">
+        <li>Smokin' BBQ 德州燒烤</li>
+        <li>阿樓師火雞肉飯</li>
+        <li>穀壹綠豆沙專門店</li>
+        <li>黃記涼麵</li>
+        <li>囍宴坊老台菜定食料理</li>
+        <li>榮興茶行</li>
+      </ul>
+      <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=阿宏師火雞肉飯" target="_blank" rel="noopener">📍 阿宏師火雞肉飯</a></div>
+    </div></div>
+    <div class="drive">同在嘉義市區，約 10 分（原標 1 小時 28 分，應為市區覓食停留時間）</div>
+    <div class="item"><span class="time">15:30</span><div class="box">
+      <h3>垂坤食品</h3>
+      <p class="hi">嘉義知名零食伴手禮賣場，肉紙、豆干、蜜餞、餅乾種類多，試吃大方。</p>
+      <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=垂坤食品" target="_blank" rel="noopener">📍 地圖</a></div>
+    </div></div>
+    <div class="drive">嘉義 → 苗栗後龍，實際約 1 小時 50 分–2 小時（原標 25 分嚴重低估）</div>
+    <div class="item"><span class="time">17:00</span><div class="box">
+      <h3>後龍夜市</h3>
+      <p class="hi">苗栗後龍在地夜市（多為週六），回程國道 1 號順路；15:30 從嘉義出發最快約 17:20 才會到。</p>
+      <div class="maplinks"><a href="https://www.google.com/maps/search/?api=1&query=後龍夜市" target="_blank" rel="noopener">📍 地圖</a></div>
+    </div></div>
+    <div class="drive">45 分鐘</div>
+    <div class="item"><span class="time">20:00</span><div class="box">
+      <h3>全家 竹北金三民店</h3>
+    </div></div>
+    <div class="drive">40 分鐘</div>
+    <div class="item"><span class="time">21:00</span><div class="box">
+      <h3>平鎮</h3>
+      <p>下客、換車</p>
+    </div></div>
+    <div class="drive">35 分鐘</div>
+    <div class="item key"><span class="time">22:00</span><div class="box">
+      <h3>到家</h3>
+    </div></div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  台南家族旅遊 · 9/25–9/27 ｜ <a href="#" onclick="window.print();return false;">🖨 列印 / 存成 PDF</a>
+</footer>
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.tab');
+  var days = document.querySelectorAll('.day');
+  function show(key){
+    tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.day === key); });
+    days.forEach(function(d){ d.classList.toggle('show', d.dataset.day === key); });
+    window.scrollTo({top:0, behavior:'smooth'});
+    try{ history.replaceState(null, '', '#' + key); }catch(e){}
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.day); }); });
+  var initial = (location.hash || '').replace('#','');
+  if (initial && document.querySelector('.day[data-day="' + initial + '"]')) show(initial);
+})();
+</script>
+
+</body>
+</html>
